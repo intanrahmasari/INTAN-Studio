@@ -1,0 +1,105 @@
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ==========================
+   BODY
+========================== */
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#FAF8F5;
+    color:#333;
+}
+
+/* ==========================
+   HEADINGS
+========================== */
+
+h1,h2,h3,h4,h5,h6{
+    font-family:'Playfair Display',serif;
+}
+
+a{
+    text-decoration:none;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+section{
+    padding:80px 0;
+}
+
+.hero{
+    padding:80px 0;
+}
+
+.hero img{
+    width:100%;
+}
+
+.card{
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    height:300px;
+    object-fit:cover;
+}
+
+footer{
+    margin-top:80px;
+}
+
+/* =========================
+PRODUCT CARD
+========================= */
+
+.product-card{
+
+transition:.3s;
+
+border-radius:16px;
+
+overflow:hidden;
+
+}
+
+.product-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.product-card img{
+
+height:300px;
+
+object-fit:cover;
+
+}
+
+/* ==========================
+SIZE BUTTON
+========================== */
+
+.active-size{
+
+    background:black;
+
+    color:white;
+
+}

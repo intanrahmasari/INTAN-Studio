@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        Payment Successful | INTAN Studio
+
+    </title>
+
+    <!-- Bootstrap -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+<body>
+
+<!-- =========================
+        NAVBAR
+========================== -->
+
+<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+
+    <div class="container">
+
+        <a
+            class="navbar-brand"
+            href="index.html">
+
+            <img
+                src="assets/logo.png"
+                height="60">
+
+        </a>
+
+    </div>
+
+</nav>
+
+<!-- =========================
+        SUCCESS
+========================== -->
+
+<section class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-7">
+
+            <div class="card shadow-sm border-0">
+
+    <div class="card-body text-center p-5">
+
+        <div class="mb-4">
+
+            <i class="bi bi-check-circle-fill text-success"
+                style="font-size: 80px;"></i>
+
+        </div>
+
+        <h2 class="fw-bold mb-3">
+
+            Payment Successful!
+
+        </h2>
+
+        <p class="text-muted mb-4">
+
+            Thank you,
+
+            <span id="customer-name-success" class="fw-semibold">
+                Customer
+            </span>
+
+            <br>
+
+            Your payment has been received successfully.
+
+        </p>
+
+        <div class="border rounded-3 p-4 text-start mb-4">
+
+            <div class="d-flex justify-content-between mb-3">
+
+                <span class="text-muted">
+
+                    Order ID
+
+                </span>
+
+                <strong id="order-id">
+
+                    #INT2026001
+
+                </strong>
+
+            </div>
+
+            <div class="d-flex justify-content-between mb-3">
+
+                <span class="text-muted">
+
+                    Estimated Delivery
+
+                </span>
+
+                <strong>
+
+                    3–5 Business Days
+
+                </strong>
+
+            </div>
+
+            <div class="d-flex justify-content-between">
+
+                <span class="text-muted">
+
+                    Payment Status
+
+                </span>
+
+                <span class="badge bg-success">
+
+                    Paid
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="d-grid gap-3">
+
+            <a href="products.html"
+                class="btn btn-dark btn-lg">
+
+                Continue Shopping
+
+            </a>
+
+            <a href="index.html"
+                class="btn btn-outline-dark">
+
+                Back to Home
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+        FOOTER
+========================== -->
+
+<footer class="bg-dark text-white pt-5 pb-3 mt-5">
+
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Brand -->
+            <div class="col-lg-4 mb-4">
+
+                <h3 class="fw-bold">
+                    INTAN Studio
+                </h3>
+
+                <p class="text-white-50">
+                    Wear Your Confidence.
+                </p>
+
+            </div>
+
+            <!-- Navigation -->
+            <div class="col-lg-4 mb-4">
+
+                <h5 class="fw-bold">
+                    Quick Links
+                </h5>
+
+                <ul class="list-unstyled">
+
+                    <li>
+                        <a href="index.html" class="text-white text-decoration-none">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="products.html" class="text-white text-decoration-none">
+                            Products
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="about.html" class="text-white text-decoration-none">
+                            About
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Contact -->
+            <div class="col-lg-4 mb-4">
+
+                <h5 class="fw-bold">
+                    Contact
+                </h5>
+
+                <p class="mb-2">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    Bandung, Indonesia
+                </p>
+
+                <p class="mb-2">
+                    <i class="bi bi-envelope-fill"></i>
+                    hello@intanstudio.com
+                </p>
+
+                <p>
+                    <i class="bi bi-telephone-fill"></i>
+                    +62 812-3456-7890
+                </p>
+
+            </div>
+
+        </div>
+
+        <hr class="border-secondary">
+
+        <div class="text-center">
+
+            <small class="text-white-50">
+
+                © 2026 INTAN Studio. All Rights Reserved.
+
+            </small>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+// ==============================
+// CUSTOMER NAME
+// ==============================
+
+const customer = JSON.parse(localStorage.getItem("customer"));
+
+if (customer) {
+
+    document.getElementById("customer-name-success").textContent =
+        customer.fullName;
+
+}
+
+// ==============================
+// RANDOM ORDER ID
+// ==============================
+
+const randomOrder =
+    "#INT" +
+    Math.floor(100000 + Math.random() * 900000);
+
+document.getElementById("order-id").textContent =
+    randomOrder;
+
+</script>
+
+</body>
+
+</html>

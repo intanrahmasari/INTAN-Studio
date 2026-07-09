@@ -128,23 +128,19 @@ Future improvements may include:
 # Project Structure
 
 ```
-INTAN-STUDIO
+```text
+INTAN-Studio/
 │
 ├── assets/
-│   ├── logo/
-│   ├── hero-banner/
-│   └── products/
-│
 ├── css/
 │   └── style.css
-│
 ├── js/
 │   ├── script.js
 │   ├── products.js
 │   ├── product-detail.js
 │   ├── cart.js
-│   ├── cart-badge.js
-│   └── payment.js
+│   ├── payment.js
+│   └── cart-badge.js
 │
 ├── index.html
 ├── products.html

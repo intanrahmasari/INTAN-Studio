@@ -128,7 +128,6 @@ Future improvements may include:
 # Project Structure
 
 ```
-```text
 INTAN-Studio/
 │
 ├── assets/

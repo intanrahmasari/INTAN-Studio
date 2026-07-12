@@ -11,7 +11,7 @@ const orders = JSON.parse(localStorage.getItem("orders")) || [];
 // DASHBOARD STATISTICS
 // ======================================
 
-document.getElementById("totalProducts").textContent = products.length;
+document.getElementById("totalProducts").textContent = 20;
 document.getElementById("totalCustomers").textContent = users.length;
 document.getElementById("totalOrders").textContent = orders.length;
 

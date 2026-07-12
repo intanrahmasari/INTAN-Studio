@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Account | INTAN Studio</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<!-- ==========================
+        NAVBAR
+========================== -->
+
+<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+
+            <img
+                src="assets/logo.png"
+                height="60"
+                alt="Logo">
+
+        </a>
+
+        <button
+            class="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarMenu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div
+            class="collapse navbar-collapse"
+            id="navbarMenu">
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                        href="index.html">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                        href="products.html">
+
+                        Products
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                        href="about.html">
+
+                        About
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+            <div class="d-flex align-items-center gap-3">
+
+                <a href="cart.html"
+                    class="text-dark position-relative text-decoration-none">
+
+                    <i class="bi bi-cart3 fs-4"></i>
+
+                    <span
+                        id="cart-count"
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                        style="display:none; font-size:10px;">
+
+                        0
+
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- ==========================
+        CUSTOMER DASHBOARD
+========================== -->
+
+<section class="py-5 bg-light min-vh-100">
+
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Sidebar -->
+            <div class="col-lg-3 mb-4">
+
+                <div class="card border-0 shadow-sm rounded-4">
+
+                    <div class="card-body text-center">
+
+                        <i class="bi bi-person-circle display-1"></i>
+
+                        <h4
+                            id="customerName"
+                            class="mt-3 fw-bold">
+
+                            Customer
+
+                        </h4>
+
+                        <p
+                            id="customerEmail"
+                            class="text-muted mb-4">
+
+                            customer@email.com
+
+                        </p>
+
+                        <div class="d-grid gap-2">
+
+                            <button
+                                id="profileMenu"
+                                class="btn btn-dark">
+
+                                <i class="bi bi-person"></i>
+
+                                Profile
+
+                            </button>
+
+                            <button
+                                id="ordersMenu"
+                                class="btn btn-outline-dark">
+
+                                <i class="bi bi-box-seam"></i>
+
+                                My Orders
+
+                            </button>
+
+                            <a
+                                href="cart.html"
+                                class="btn btn-outline-dark">
+
+                                <i class="bi bi-cart3"></i>
+
+                                My Cart
+
+                            </a>
+
+                            <button
+                                id="logoutBtn"
+                                class="btn btn-danger">
+
+                                <i class="bi bi-box-arrow-right"></i>
+
+                                Logout
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+
+                <div
+                    id="dashboardContent"
+                    class="card border-0 shadow-sm rounded-4">
+
+                    <div class="card-body p-4">
+
+                        <h3 class="fw-bold">
+
+                            My Profile
+
+                        </h3>
+
+                        <hr>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+
+                                <label class="fw-semibold">
+
+                                    Full Name
+
+                                </label>
+
+                                <p id="profileName">
+
+                                    -
+
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <label class="fw-semibold">
+
+                                    Email
+
+                                </label>
+
+                                <p id="profileEmail">
+
+                                    -
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="alert alert-light border mt-4">
+
+                            Welcome back to
+                            <strong>INTAN Studio</strong>.
+
+                            You can manage your account and view your orders from this dashboard.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================
+        ORDER DETAIL MODAL
+========================== -->
+
+<div
+    class="modal fade"
+    id="orderModal"
+    tabindex="-1">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+
+                    Order Details
+
+                </h5>
+
+                <button
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+
+                </button>
+
+            </div>
+
+            <div
+                class="modal-body"
+                id="orderDetailBody">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Customer JS -->
+<script src="js/customer.js"></script>
+
+</body>

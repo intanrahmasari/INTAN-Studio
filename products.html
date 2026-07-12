@@ -27,7 +27,7 @@
 
 <body>
 
-<!-- =========================
+<!-- ==========================
         NAVBAR
 ========================== -->
 
@@ -35,16 +35,20 @@
 
     <div class="container">
 
+        <!-- Logo -->
         <a class="navbar-brand" href="index.html">
 
-            <img src="assets/logo.png"
-                 height="60"
-                 alt="Logo">
+            <img
+                src="assets/logo.png"
+                alt="INTAN Studio"
+                height="60">
 
         </a>
 
+        <!-- Mobile Button -->
         <button
             class="navbar-toggler"
+            type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarMenu">
 
@@ -52,16 +56,19 @@
 
         </button>
 
+        <!-- Navbar Menu -->
         <div
             class="collapse navbar-collapse"
             id="navbarMenu">
 
+            <!-- Navigation -->
             <ul class="navbar-nav mx-auto">
 
                 <li class="nav-item">
 
-                    <a class="nav-link"
-                       href="index.html">
+                    <a
+                        class="nav-link"
+                        href="index.html">
 
                         Home
 
@@ -71,8 +78,9 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link active"
-                       href="products.html">
+                    <a
+                        class="nav-link active"
+                        href="products.html">
 
                         Products
 
@@ -82,8 +90,9 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link"
-                       href="about.html">
+                    <a
+                        class="nav-link"
+                        href="about.html">
 
                         About
 
@@ -93,10 +102,10 @@
 
             </ul>
 
-            <!-- Cart -->
+            <!-- Right Menu -->
+            <div class="d-flex align-items-center gap-3">
 
-            <div class="d-flex align-items-center">
-
+                <!-- Cart -->
                 <a
                     href="cart.html"
                     class="text-dark position-relative text-decoration-none">
@@ -110,6 +119,20 @@
 
                         0
 
+                    </span>
+
+                </a>
+
+                <!-- Login -->
+                <a
+                    id="accountLink"
+                    href="login.html"
+                    class="text-dark text-decoration-none d-flex align-items-center gap-1">
+
+                    <i class="bi bi-person-circle fs-5"></i>
+
+                    <span id="accountText">
+                        Login
                     </span>
 
                 </a>
@@ -146,21 +169,66 @@
             SEARCH
     ========================== -->
 
-    <section class="container mb-4">
+    <section class="container mb-3">
 
-        <div class="row justify-content-center">
+    <div class="row justify-content-center">
 
-            <div class="col-lg-6">
+        <div class="col-lg-10">
 
-                <input
-                    type="text"
-                    class="form-control"
-                    id="searchInput"
-                    placeholder="Search product...">
+            <div class="d-flex gap-3">
+
+                <!-- Search -->
+
+                <div class="input-group">
+
+                    <span class="input-group-text bg-white border-end-0">
+
+                        <i class="bi bi-search"></i>
+
+                    </span>
+
+                    <input
+                        type="text"
+                        class="form-control border-start-0"
+                        id="searchInput"
+                        placeholder="Search products...">
+
+                </div>
+
+                <!-- Sort -->
+
+                <select
+                    class="form-select"
+                    id="sortSelect"
+                    style="max-width:230px;">
+
+                    <option value="default">
+                        Sort By
+                    </option>
+
+                    <option value="az">
+                        A - Z
+                    </option>
+
+                    <option value="za">
+                        Z - A
+                    </option>
+
+                    <option value="low">
+                        Lowest Price
+                    </option>
+
+                    <option value="high">
+                        Highest Price
+                    </option>
+
+                </select>
 
             </div>
 
         </div>
+
+    </div>
 
     </section>
 
@@ -168,7 +236,7 @@
             CATEGORY
     ========================== -->
 
-    <section class="container mb-5 text-center">
+    <section class="container mb-3 text-center">
 
         <button class="btn btn-dark m-1 category-btn active" data-category="All">
             All
@@ -196,7 +264,7 @@
             PRODUCT LIST
     ========================== -->
 
-    <section class="container pb-5">
+    <section class="container pb-3">
 
         <div class="row g-4" id="product-list">
 
@@ -313,6 +381,7 @@
     <!-- Products JS -->
     <script src="js/products.js"></script>
     <script src="js/cart-badge.js"></script>
+    <script src="js/auth.js"></script>
 
 </body>
 

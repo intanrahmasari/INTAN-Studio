@@ -34,7 +34,7 @@
 
 <body>
 
-<!-- =========================
+<!-- ==========================
         NAVBAR
 ========================== -->
 
@@ -47,7 +47,7 @@
 
             <img
                 src="assets/logo.png"
-                alt="Logo"
+                alt="INTAN Studio"
                 height="60">
 
         </a>
@@ -63,11 +63,12 @@
 
         </button>
 
-        <!-- Menu -->
+        <!-- Navbar Menu -->
         <div
             class="collapse navbar-collapse"
             id="navbarMenu">
 
+            <!-- Navigation -->
             <ul class="navbar-nav mx-auto">
 
                 <li class="nav-item">
@@ -108,9 +109,10 @@
 
             </ul>
 
-            <!-- Cart -->
-            <div class="d-flex align-items-center">
+            <!-- Right Menu -->
+            <div class="d-flex align-items-center gap-3">
 
+                <!-- Cart -->
                 <a
                     href="cart.html"
                     class="text-dark position-relative text-decoration-none">
@@ -124,6 +126,20 @@
 
                         0
 
+                    </span>
+
+                </a>
+
+                <!-- Login -->
+                <a
+                    id="accountLink"
+                    href="login.html"
+                    class="text-dark text-decoration-none d-flex align-items-center gap-1">
+
+                    <i class="bi bi-person-circle fs-5"></i>
+
+                    <span id="accountText">
+                        Login
                     </span>
 
                 </a>
@@ -302,6 +318,7 @@ id="related-products">
 
 <script src="js/product-detail.js"></script>
 <script src="js/cart-badge.js"></script>
+<script src="js/auth.js"></script>
 
 </body>
 

@@ -362,3 +362,61 @@ categoryButtons.forEach(button => {
     });
 
 });
+
+// ===============================
+// SORT PRODUCT
+// ===============================
+
+const sortSelect = document.getElementById("sortSelect");
+
+if (sortSelect) {
+
+    sortSelect.addEventListener("change", function () {
+
+        let sortedProducts = [...products];
+
+        switch (this.value) {
+
+            case "az":
+
+                sortedProducts.sort((a, b) =>
+                    a.name.localeCompare(b.name)
+                );
+
+                break;
+
+            case "za":
+
+                sortedProducts.sort((a, b) =>
+                    b.name.localeCompare(a.name)
+                );
+
+                break;
+
+            case "low":
+
+                sortedProducts.sort((a, b) =>
+                    a.price - b.price
+                );
+
+                break;
+
+            case "high":
+
+                sortedProducts.sort((a, b) =>
+                    b.price - a.price
+                );
+
+                break;
+
+            default:
+
+                sortedProducts = [...products];
+
+        }
+
+        displayProducts(sortedProducts);
+
+    });
+
+}

@@ -115,49 +115,104 @@ paymentTotal.textContent = formatPrice(total);
 
 const payNowButton = document.getElementById("pay-now");
 
-payNowButton.addEventListener("click", function () {
+if (payNowButton) {
 
-    const fullName = document.getElementById("customer-name").value.trim();
+    payNowButton.addEventListener("click", function () {
 
-    const phone = document.getElementById("customer-phone").value.trim();
+        const fullName = document.getElementById("customer-name").value.trim();
 
-    const email = document.getElementById("customer-email").value.trim();
+        const phone = document.getElementById("customer-phone").value.trim();
 
-    const address = document.getElementById("customer-address").value.trim();
+        const email = document.getElementById("customer-email").value.trim();
 
-    // Validasi form
-    if (
-        fullName === "" ||
-        phone === "" ||
-        email === "" ||
-        address === ""
-    ) {
+        const address = document.getElementById("customer-address").value.trim();
 
-        alert("Please complete all billing information.");
+        // =====================================
+        // VALIDATION
+        // =====================================
 
-        return;
+        if (
+            fullName === "" ||
+            phone === "" ||
+            email === "" ||
+            address === ""
+        ) {
 
-    }
+            alert("Please complete all billing information.");
 
-    // Simpan data customer
-    const customer = {
+            return;
 
-        fullName,
-        phone,
-        email,
-        address
+        }
 
-    };
+        // =====================================
+        // SAVE CUSTOMER
+        // =====================================
 
-    localStorage.setItem(
-        "customer",
-        JSON.stringify(customer)
-    );
+        const customer = {
 
-    // Kosongkan cart setelah pembayaran
-    localStorage.removeItem("cart");
+            fullName,
+            phone,
+            email,
+            address
 
-    // Pindah ke halaman sukses
-    window.location.href = "payment-success.html";
+        };
 
-});
+        localStorage.setItem(
+            "customer",
+            JSON.stringify(customer)
+        );
+
+        // =====================================
+        // SAVE ORDER
+        // =====================================
+
+        const orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+        const newOrder = {
+
+            id: "ORD" + Date.now(),
+
+            customer: currentUser
+                ? currentUser.fullname
+                : fullName,
+
+            email: email,
+
+            phone: phone,
+
+            address: address,
+
+            items: cart,
+
+            total: total,
+
+            status: "Paid",
+
+            date: new Date().toLocaleDateString("id-ID")
+
+        };
+
+        orders.push(newOrder);
+
+        localStorage.setItem(
+            "orders",
+            JSON.stringify(orders)
+        );
+
+        // =====================================
+        // CLEAR CART
+        // =====================================
+
+        localStorage.removeItem("cart");
+
+        // =====================================
+        // REDIRECT
+        // =====================================
+
+        window.location.href = "payment-success.html";
+
+    });
+
+}

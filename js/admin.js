@@ -166,586 +166,296 @@ if(customerTable){
 
 const productTable = document.getElementById("productTable");
 
-if (productTable) {
+if(productTable){
+
+    const products = [
+
+        {
+            name:"Essential Oversized Tee - White",
+            category:"T-Shirt",
+            price:129000,
+            image:"assets/tshirt-1.jpg"
+        },
+
+        {
+            name:"Essential Oversized Tee - Black",
+            category:"T-Shirt",
+            price:129000,
+            image:"assets/tshirt-2.jpg"
+        },
+
+        {
+            name:"Signature Graphic Tee",
+            category:"T-Shirt",
+            price:149000,
+            image:"assets/tshirt-3.jpg"
+        },
+
+        {
+            name:"Stripe Relax Tee",
+            category:"T-Shirt",
+            price:159000,
+            image:"assets/tshirt-4.jpg"
+        },
+
+        {
+            name:"Basic Everyday Tee",
+            category:"T-Shirt",
+            price:139000,
+            image:"assets/tshirt-5.jpg"
+        },
+
+        {
+            name:"Essential Hoodie Black",
+            category:"Hoodie",
+            price:249000,
+            image:"assets/hoodie-1.jpg"
+        },
+
+        {
+            name:"Essential Hoodie Grey",
+            category:"Hoodie",
+            price:249000,
+            image:"assets/hoodie-2.jpg"
+        },
+
+        {
+            name:"Zip Hoodie Cream",
+            category:"Hoodie",
+            price:259000,
+            image:"assets/hoodie-3.jpg"
+        },
+
+        {
+            name:"Vintage Washed Hoodie",
+            category:"Hoodie",
+            price:269000,
+            image:"assets/hoodie-4.jpg"
+        },
+
+        {
+            name:"Minimal Logo Hoodie",
+            category:"Hoodie",
+            price:259000,
+            image:"assets/hoodie-5.jpg"
+        },
+
+        {
+            name:"Cargo Utility Pants",
+            category:"Bottom",
+            price:269000,
+            image:"assets/bottom-1.jpg"
+        },
+
+        {
+            name:"Wide Leg Jeans",
+            category:"Bottom",
+            price:299000,
+            image:"assets/bottom-2.jpg"
+        },
+
+        {
+            name:"Straight Fit Jeans",
+            category:"Bottom",
+            price:289000,
+            image:"assets/bottom-3.jpg"
+        },
+
+        {
+            name:"Relax Chino Pants",
+            category:"Bottom",
+            price:249000,
+            image:"assets/bottom-4.jpg"
+        },
 
-    productTable.innerHTML = `
+        {
+            name:"Everyday Jogger Pants",
+            category:"Bottom",
+            price:229000,
+            image:"assets/bottom-5.jpg"
+        },
 
-    <tr>
+        {
+            name:"Canvas Tote Bag",
+            category:"Accessories",
+            price:119000,
+            image:"assets/accessory-1.jpg"
+        },
 
-        <td>
+        {
+            name:"Classic Baseball Cap",
+            category:"Accessories",
+            price:99000,
+            image:"assets/accessory-2.jpg"
+        },
 
-            <img src="assets/tshirt-1.jpg"
-                 width="60"
-                 class="rounded">
+        {
+            name:"Minimal Leather Wallet",
+            category:"Accessories",
+            price:189000,
+            image:"assets/accessory-3.jpg"
+        },
 
-        </td>
+        {
+            name:"Casual Canvas Belt",
+            category:"Accessories",
+            price:139000,
+            image:"assets/accessory-4.jpg"
+        },
 
-        <td>Essential Oversized Tee - White</td>
+        {
+            name:"Beaded Bracelet",
+            category:"Accessories",
+            price:89000,
+            image:"assets/accessory-5.jpg"
+        }
 
-        <td>T-Shirt</td>
+    ];
 
-        <td>Rp 129.000</td>
+    const stocks = JSON.parse(
 
-        <td>105</td>
+        localStorage.getItem("stocks")
 
-    </tr>
+    ) || [
 
-    <tr>
+        120,95,85,76,101,
+        52,67,41,33,28,
+        73,66,58,47,39,
+        120,84,42,56,91
 
-        <td>
+    ];
 
-            <img src="assets/tshirt-2.jpg"
-                 width="60"
-                 class="rounded">
+    products.forEach(function(product,index){
 
-        </td>
+        productTable.innerHTML += `
 
-        <td>Essential Oversized Tee - Black</td>
+        <tr>
 
-        <td>T-Shirt</td>
+            <td>
 
-        <td>Rp 129.000</td>
+                <img
+                    src="${product.image}"
+                    width="60"
+                    class="rounded">
 
-        <td>120</td>
+            </td>
 
-    </tr>
+            <td>
 
-    <tr>
+                ${product.name}
 
-        <td>
+            </td>
 
-            <img src="assets/tshirt-3.jpg"
-                 width="60"
-                 class="rounded">
+            <td>
 
-        </td>
+                ${product.category}
 
-        <td>Signature Graphic Tee</td>
+            </td>
 
-        <td>T-Shirt</td>
+            <td>
 
-        <td>Rp 149.000</td>
+                Rp ${product.price.toLocaleString("id-ID")}
 
-        <td>70</td>
+            </td>
 
-    </tr>
+            <td
+                id="stock${index}"
+                class="fw-semibold text-center">
 
-    <tr>
+                ${stocks[index]}
 
-        <td>
+            </td>
 
-            <img src="assets/tshirt-4.jpg"
-                 width="60"
-                 class="rounded">
+            <td class="text-center">
 
-        </td>
+                <button
+                    class="btn btn-sm btn-outline-dark"
+                    onclick="decreaseStock(${index})">
 
-        <td>Stripe Relax Tee</td>
+                    ➖ 
 
-        <td>T-Shirt</td>
+                </button>
 
-        <td>Rp 159.000</td>
+                <button
+                    class="btn btn-sm btn-outline-dark ms-2"
+                    onclick="increaseStock(${index})">
 
-        <td>55</td>
+                    ➕
 
-    </tr>
+                </button>
 
-    <tr>
+            </td>
 
-        <td>
+        </tr>
 
-            <img src="assets/tshirt-5.jpg"
-                 width="60"
-                 class="rounded">
+        `;
 
-        </td>
+    });
 
-        <td>Basic Everyday Tee</td>
-
-        <td>T-Shirt</td>
-
-        <td>Rp 139.000</td>
-
-        <td>92</td>
-
-    </tr>
-
-    <tr>
-
-        <td>
-
-            <img src="assets/hoodie-1.jpg"
-                 width="60"
-                 class="rounded">
-
-        </td>
-
-        <td>Essential Hoodie Black</td>
-
-        <td>Hoodie</td>
-
-        <td>Rp 249.000</td>
-
-        <td>67</td>
-
-    </tr>
-
-    <tr>
-
-        <td>
-
-            <img src="assets/hoodie-2.jpg"
-                 width="60"
-                 class="rounded">
-
-        </td>
-
-        <td>Essential Hoodie Grey</td>
-
-        <td>Hoodie</td>
-
-        <td>Rp 249.000</td>
-
-        <td>53</td>
-
-    </tr>
-
-    <tr>
-
-        <td>
-
-            <img src="assets/hoodie-3.jpg"
-                 width="60"
-                 class="rounded">
-
-        </td>
-
-        <td>Zip Hoodie Cream</td>
-
-        <td>Hoodie</td>
-
-        <td>Rp 259.000</td>
-
-        <td>39</td>
-
-    </tr>
-
-    <tr>
-
-        <td>
-
-            <img src="assets/hoodie-4.jpg"
-                 width="60"
-                 class="rounded">
-
-        </td>
-
-        <td>Vintage Washed Hoodie</td>
-
-        <td>Hoodie</td>
-
-        <td>Rp 269.000</td>
-
-        <td>28</td>
-
-    </tr>
-
-    <tr>
-
-        <td>
-
-            <img src="assets/hoodie-5.jpg"
-                 width="60"
-                 class="rounded">
-
-        </td>
-
-        <td>Minimal Logo Hoodie</td>
-
-        <td>Hoodie</td>
-
-        <td>Rp 259.000</td>
-
-        <td>32</td>
-
-    </tr>
-
-    `;
 }
 
-productTable.innerHTML += `
+// ======================================
+// STOCK MANAGEMENT
+// ======================================
 
-<tr>
+const stocks = JSON.parse(
 
-    <td>
+    localStorage.getItem("stocks")
 
-        <img
-            src="assets/bottom-1.jpg"
-            width="60"
-            class="rounded">
+) || [
 
-    </td>
+    120,95,85,76,101,
+    52,67,41,33,28,
+    73,66,58,47,39,
+    120,84,42,56,91
 
-    <td>
+];
 
-        Cargo Utility Pants
+function saveStocks(){
 
-    </td>
+    localStorage.setItem(
 
-    <td>
+        "stocks",
 
-        Bottom
+        JSON.stringify(stocks)
 
-    </td>
+    );
 
-    <td>
+}
 
-        Rp 269.000
+function increaseStock(index){
 
-    </td>
+    stocks[index]++;
 
-    <td>
+    document.getElementById(
 
-        45
+        "stock" + index
 
-    </td>
+    ).textContent = stocks[index];
 
-</tr>
+    saveStocks();
 
-<tr>
+}
 
-    <td>
+function decreaseStock(index){
 
-        <img
-            src="assets/bottom-2.jpg"
-            width="60"
-            class="rounded">
+    if(stocks[index] <= 0){
 
-    </td>
+        return;
 
-    <td>
+    }
 
-        Wide Leg Jeans
+    stocks[index]--;
 
-    </td>
+    document.getElementById(
 
-    <td>
+        "stock" + index
 
-        Bottom
+    ).textContent = stocks[index];
 
-    </td>
+    saveStocks();
 
-    <td>
-
-        Rp 299.000
-
-    </td>
-
-    <td>
-
-        61
-
-    </td>
-
-</tr>
-
-<tr>
-
-    <td>
-
-        <img
-            src="assets/bottom-3.jpg"
-            width="60"
-            class="rounded">
-
-    </td>
-
-    <td>
-
-        Straight Fit Jeans
-
-    </td>
-
-    <td>
-
-        Bottom
-
-    </td>
-
-    <td>
-
-        Rp 289.000
-
-    </td>
-
-    <td>
-
-        82
-
-    </td>
-
-</tr>
-
-<tr>
-
-    <td>
-
-        <img
-            src="assets/bottom-4.jpg"
-            width="60"
-            class="rounded">
-
-    </td>
-
-    <td>
-
-        Relax Chino Pants
-
-    </td>
-
-    <td>
-
-        Bottom
-
-    </td>
-
-    <td>
-
-        Rp 249.000
-
-    </td>
-
-    <td>
-
-        54
-
-    </td>
-
-</tr>
-
-<tr>
-
-    <td>
-
-        <img
-            src="assets/bottom-5.jpg"
-            width="60"
-            class="rounded">
-
-    </td>
-
-    <td>
-
-        Everyday Jogger Pants
-
-    </td>
-
-    <td>
-
-        Bottom
-
-    </td>
-
-    <td>
-
-        Rp 229.000
-
-    </td>
-
-    <td>
-
-        71
-
-    </td>
-
-</tr>
-
-<tr>
-
-    <td>
-
-        <img
-            src="assets/accessory-1.jpg"
-            width="60"
-            class="rounded">
-
-    </td>
-
-    <td>
-
-        Canvas Tote Bag
-
-    </td>
-
-    <td>
-
-        Accessories
-
-    </td>
-
-    <td>
-
-        Rp 119.000
-
-    </td>
-
-    <td>
-
-        69
-
-    </td>
-
-</tr>
-
-<tr>
-
-    <td>
-
-        <img
-            src="assets/accessory-2.jpg"
-            width="60"
-            class="rounded">
-
-    </td>
-
-    <td>
-
-        Classic Baseball Cap
-
-    </td>
-
-    <td>
-
-        Accessories
-
-    </td>
-
-    <td>
-
-        Rp 99.000
-
-    </td>
-
-    <td>
-
-        37
-
-    </td>
-
-</tr>
-
-<tr>
-
-    <td>
-
-        <img
-            src="assets/accessory-3.jpg"
-            width="60"
-            class="rounded">
-
-    </td>
-
-    <td>
-
-        Minimal Leather Wallet
-
-    </td>
-
-    <td>
-
-        Accessories
-
-    </td>
-
-    <td>
-
-        Rp 189.000
-
-    </td>
-
-    <td>
-
-        42
-
-    </td>
-
-</tr>
-
-<tr>
-
-    <td>
-
-        <img
-            src="assets/accessory-4.jpg"
-            width="60"
-            class="rounded">
-
-    </td>
-
-    <td>
-
-        Casual Canvas Belt
-
-    </td>
-
-    <td>
-
-        Accessories
-
-    </td>
-
-    <td>
-
-        Rp 139.000
-
-    </td>
-
-    <td>
-
-        28
-
-    </td>
-
-</tr>
-
-<tr>
-
-    <td>
-
-        <img
-            src="assets/accessory-5.jpg"
-            width="60"
-            class="rounded">
-
-    </td>
-
-    <td>
-
-        Beaded Bracelet
-
-    </td>
-
-    <td>
-
-        Accessories
-
-    </td>
-
-    <td>
-
-        Rp 89.000
-
-    </td>
-
-    <td>
-
-        57
-
-    </td>
-
-</tr>
-
-`;
+}
 
 // ======================================
 // LOGOUT

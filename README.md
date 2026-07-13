@@ -122,7 +122,7 @@ This workflow simulates the standard purchasing process commonly found in modern
 
 ## Customer Features
 
-The customer side of the website provides a complete shopping experience, including:
+The customer side of the website provides a complete online shopping experience, including:
 
 - User Registration
 - User Login
@@ -148,7 +148,7 @@ The customer side of the website provides a complete shopping experience, includ
 
 ## Admin Features
 
-The administrator dashboard provides business monitoring features, including:
+The administrator dashboard provides business monitoring and inventory management features, including:
 
 - Admin Login
 - Dashboard Statistics
@@ -158,7 +158,10 @@ The administrator dashboard provides business monitoring features, including:
 - Total Revenue
 - Recent Orders
 - Customer List
-- Product Catalog Monitoring
+- Product Management
+- Product Stock Monitoring
+- Increase Product Stock
+- Decrease Product Stock
 - Logout
 
 ---
@@ -174,9 +177,11 @@ Customers can:
 - Register a new account.
 - Login using their registered account.
 - Browse products.
+- Search products.
 - View detailed product information.
-- Choose product size.
+- Select product size.
 - Add products to the shopping cart.
+- Remove products from the shopping cart.
 - Complete the checkout process.
 - Simulate online payment.
 - View order history.
@@ -195,7 +200,9 @@ Administrators can:
 - View customer data.
 - Monitor recent orders.
 - View total sales revenue.
-- Monitor the available product catalog.
+- Monitor product inventory.
+- Increase product stock.
+- Decrease product stock.
 - Logout securely.
 
 ---
@@ -211,6 +218,10 @@ Home Page
 ↓
 
 Browse Products
+
+↓
+
+Search Products
 
 ↓
 
@@ -248,6 +259,10 @@ Customer Dashboard
 
 Order History
 
+↓
+
+View Order Details
+
 ---
 
 ### Administrator Workflow
@@ -272,13 +287,15 @@ Monitor Orders
 
 ↓
 
-View Product Catalog
+Manage Product Stock
+
+↓
+
+Increase / Decrease Stock
 
 ↓
 
 Logout
-
----
 
 # Technologies Used
 
@@ -512,14 +529,17 @@ Controls the Administrator Dashboard.
 
 Features include:
 
-- Display business statistics
+- Display dashboard statistics
 - Display total products
 - Display total customers
 - Display total orders
 - Display total revenue
 - Display recent orders
 - Display customer list
-- Display product catalog
+- Display product inventory
+- Increase product stock
+- Decrease product stock
+- Store stock changes using Local Storage
 - Logout
 
 ---
@@ -595,7 +615,7 @@ Displays the customer dashboard, including profile information and purchase hist
 
 ## admin.html
 
-Displays the administrator dashboard for monitoring products, customers, orders, and sales statistics.
+Displays the administrator dashboard for monitoring business statistics, customers, orders, sales revenue, and product inventory. Administrators can also increase or decrease product stock through the Product Management section.
 
 ---
 
